@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from welcome.views import index, health
+from polls.views import index, health
 from . import views
 
 urlpatterns = [
