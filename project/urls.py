@@ -1,19 +1,18 @@
 from django.conf import settings
 from django.conf.urls import include, url
-from django.contrib import admin
 
 from welcome.views import index, health
 
-urlpatterns = [
-    # Examples:
-    # url(r'^$', 'project.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
+from django.contrib import admin
+from django.urls import include, path
 
+urlpatterns = [
     url(r'^$', index),
     url(r'^health$', health),
-    url(r'^admin/', include(admin.site.urls)),
-    url('polls/', include('polls.urls')),
+    path('polls/', include('polls.urls')),
+    path('admin/', admin.site.urls),
 ]
+
 
 if settings.DEBUG:
     import debug_toolbar
