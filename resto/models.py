@@ -19,6 +19,7 @@ class Restaurant(models.Model):
     def __str__(self):
         return "%s the restaurant" % self.place.name
 
+
 class Waiter(models.Model):
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
