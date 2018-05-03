@@ -36,6 +36,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'resto.apps.RestoConfig',
     'press.apps.PressConfig',
     'books.apps.BooksConfig',
     'polls.apps.PollsConfig',
