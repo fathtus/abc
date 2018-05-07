@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^health$', health),
     path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
+    path('welcome/', include('welcome.urls')),
 ]
 
 

@@ -301,7 +301,7 @@ $ git push</pre>
 
                 <h2>Request information</h2>
 <pre>
-  <form action="" method="POST">
+  <form action="{%url 'welcome:calculate'%}" method="POST">
     <select name="day">
       {% for d in rangeDay %}
 
@@ -325,7 +325,12 @@ $ git push</pre>
       {% endfor %}
      
     </select>
+    <input type="submit" value="calculate" />
   </form>
+
+  {%if calculatedJD %}
+    calculatedJD :: {{calculatedJD}}
+  {% endif %}
 
 Server hostname: {{ hostname }}
 Database server: {{ database.engine }} ({{ database.url }})

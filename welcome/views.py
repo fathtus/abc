@@ -34,6 +34,23 @@ Astronomical algorithms
 from the book "Astronomical Algorithms" by Jean Meeus, 1998
 '''
 
+def calculate(request):
+	dd = int(request.POST['day'])
+	mm = int(request.POST['month'])
+	yy = int(request.POST['year'])
+
+	return render(request, 'welcome/index.html', {
+        'hostname': hostname,
+        'database': database.info(),
+        'count': PageView.objects.count(),
+        'jd' : jd, 
+        'date': jdToDate(jd),
+        'rangeDay': range(1,32),
+        'rangeMonth': range(1,13),
+        'rangeYear': range(2000,2018),
+        'calculatedJD': jdFromDate(dd, mm, yy)
+    }) 
+
 
 
 import math
