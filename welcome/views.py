@@ -12,7 +12,7 @@ def index(request):
     hostname = os.getenv('HOSTNAME', 'unknown')
     PageView.objects.create(hostname=hostname)
 
-    jd = jdFromDate(01,01,01)
+    jd = jdFromDate(1, 1, 1)
 
     return render(request, 'welcome/index.html', {
         'hostname': hostname,
