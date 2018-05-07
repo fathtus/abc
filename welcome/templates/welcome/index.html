@@ -303,8 +303,8 @@ $ git push</pre>
 <pre>
   <form action="" method="POST">
     <select name="day">
-      {% for d in range(0,32) %}
-        <option value="{% d %}">{% d %}</option>
+      {% for d in 32|range %}
+        <option value="{{ d }}">{{ d }}</option>
       {% endfor %}
      
     </select>
