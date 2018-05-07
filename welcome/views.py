@@ -12,10 +12,13 @@ def index(request):
     hostname = os.getenv('HOSTNAME', 'unknown')
     PageView.objects.create(hostname=hostname)
 
+    jd = jdFromDate(01,01,01)
+
     return render(request, 'welcome/index.html', {
         'hostname': hostname,
         'database': database.info(),
-        'count': PageView.objects.count()
+        'count': PageView.objects.count(),
+        'jd' : jd
     })
 
 def health(request):
