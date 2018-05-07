@@ -301,6 +301,29 @@ $ git push</pre>
 
                 <h2>Request information</h2>
 <pre>
+  <form action="" method="POST">
+    <select name="day">
+      {% for d in [1,31] %}
+        <option value="{% d %}">{% d %}</option>
+      {% endfor %}
+     
+    </select>
+
+    <select name="month">
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="mercedes">Mercedes</option>
+      <option value="audi">Audi</option>
+    </select>
+
+    <select name="year">
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="mercedes">Mercedes</option>
+      <option value="audi">Audi</option>
+    </select>
+  </form>
+
 Server hostname: {{ hostname }}
 Database server: {{ database.engine }} ({{ database.url }})
 {% if database.is_sqlite %}<span class="warning">Data persistence warning: You are currently using SQLite. This is fine for development, but your data won't be persisted across application deployments.</span>{% endif %}
