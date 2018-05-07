@@ -18,7 +18,8 @@ def index(request):
         'hostname': hostname,
         'database': database.info(),
         'count': PageView.objects.count(),
-        'jd' : jd
+        'jd' : jd, 
+        'date': jdToDate(jd)
     })
 
 def health(request):
