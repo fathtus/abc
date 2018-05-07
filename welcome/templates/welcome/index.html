@@ -303,7 +303,7 @@ $ git push</pre>
 <pre>
   <form action="" method="POST">
     <select name="day">
-      {% for d in range %}
+      {% for d in rangeDay %}
 
         <option value="{{ d }}">{{ d }}</option>
       {% endfor %}
@@ -311,17 +311,19 @@ $ git push</pre>
     </select>
 
     <select name="month">
-      <option value="volvo">Volvo</option>
-      <option value="saab">Saab</option>
-      <option value="mercedes">Mercedes</option>
-      <option value="audi">Audi</option>
+      {% for m in rangeMonth %}
+
+        <option value="{{ m }}">{{ m }}</option>
+      {% endfor %}
+     
     </select>
 
     <select name="year">
-      <option value="volvo">Volvo</option>
-      <option value="saab">Saab</option>
-      <option value="mercedes">Mercedes</option>
-      <option value="audi">Audi</option>
+      {% for y in rangeYear %}
+
+        <option value="{{ y }}">{{ y }}</option>
+      {% endfor %}
+     
     </select>
   </form>
 

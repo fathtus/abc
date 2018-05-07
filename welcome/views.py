@@ -20,7 +20,9 @@ def index(request):
         'count': PageView.objects.count(),
         'jd' : jd, 
         'date': jdToDate(jd),
-        'range': range(1,32)
+        'rangeDay': range(1,32),
+        'rangeMonth': range(1,13),
+        'rangeYear': range(2000,2018)
     })
 
 def health(request):
