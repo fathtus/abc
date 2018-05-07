@@ -19,7 +19,8 @@ def index(request):
         'database': database.info(),
         'count': PageView.objects.count(),
         'jd' : jd, 
-        'date': jdToDate(jd)
+        'date': jdToDate(jd),
+        'range': range(32)
     })
 
 def health(request):
