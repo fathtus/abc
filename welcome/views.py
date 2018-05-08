@@ -36,7 +36,7 @@ from the book "Astronomical Algorithms" by Jean Meeus, 1998
 '''
 
 def calculate(request):
-	if (request.POST['day'] != null and request.POST['month'] != null and request.POST['year'] != nulls):
+	if (request.POST['day'] and request.POST['month'] and request.POST['year']):
 		dd = int(request.POST['day'])
 		mm = int(request.POST['month'])
 		yy = int(request.POST['year'])
