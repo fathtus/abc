@@ -302,6 +302,7 @@ $ git push</pre>
                 <h2>Request information</h2>
 <pre>
   <form action="{%url 'welcome:calculate'%}" method="POST">
+    {% csrf_token %}
     <select name="day">
       {% for d in rangeDay %}
 
