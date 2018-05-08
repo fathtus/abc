@@ -285,7 +285,7 @@ Page views: {{ count }}
       e.preventDefault();
       var $form = $("#calculateForm");
       $.ajax({
-        type: POST,
+        type: 'POST',
         url : $form.attr('action')+'?fixLoading=true',
         dataType  : 'html',
         data: $form.serialize(),
