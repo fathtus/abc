@@ -38,7 +38,7 @@ ALLOWED_HOSTS = ['*']
 
 
 INSTALLED_APPS = [
-    'welcome.apps.WelcomeConfig',
+#    'welcome.apps.WelcomeConfig',
     'resto.apps.RestoConfig',
     'press.apps.PressConfig',
     'books.apps.BooksConfig',
