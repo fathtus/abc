@@ -1,4 +1,5 @@
 import os
+import math
 from django.shortcuts import render
 from django.conf import settings
 from django.http import HttpResponse
@@ -57,7 +58,7 @@ def calculate(request):
 
 
 
-import math
+
 def jdFromDate(dd, mm, yy):
   '''def jdFromDate(dd, mm, yy): Compute the (integral) Julian day number of day dd/mm/yyyy, i.e., the number of days between 1/1/4713 BC (Julian calendar) and dd/mm/yyyy.'''
   a = int((14 - mm) / 12.)
