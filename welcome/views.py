@@ -53,6 +53,7 @@ def calculate(request):
 
 #    jd = jdFromDate(1, 1, 1)
 	if (request.GET and request.GET.get('fixLoading')):
+		fixLoading = request.GET.get('fixLoading')
 		return render(request, 'welcome/index.html', {
 	        'hostname': hostname,
 	        'database': database.info(),
