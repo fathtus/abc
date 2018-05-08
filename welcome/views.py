@@ -27,8 +27,7 @@ def index(request):
         'date': jdToDate(jd),
         'rangeDay': range(1,32),
         'rangeMonth': range(1,13),
-        'rangeYear': range(2000,2018),
-        'form': form
+        'rangeYear': range(2000,2018)
     })
 
 def health(request):
