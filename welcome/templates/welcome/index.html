@@ -1,6 +1,5 @@
 {%if not fixLoading %}
 {% load static %}
-{% load NameForm %}
 
 <!doctype html>
 <html lang="en">
@@ -294,6 +293,7 @@ Page views: {{ count }}
 </script>
 {% if not fixLoading %}
 
+FORM:
 <form action="/welcome/" method="post">
     {% csrf_token %}
     {{ form }}
