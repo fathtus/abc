@@ -102,7 +102,7 @@ def get_name(request):
 
     # if a GET (or any other method) we'll create a blank form
     else:
-        form = NameForm()
+        form = NameForm(request.GET)
 
     return render(request, 'welcome/name.html', {'form': form})
 
