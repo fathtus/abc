@@ -39,7 +39,7 @@ def calculate(request):
 	mm = int(request.POST['month'])
 	yy = int(request.POST['year'])
 	hostname = os.getenv('HOSTNAME', 'unknown')
-    PageView.objects.create(hostname=hostname)
+#    PageView.objects.create(hostname=hostname)
 
     jd = jdFromDate(1, 1, 1)
 
