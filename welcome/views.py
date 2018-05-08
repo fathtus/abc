@@ -53,7 +53,10 @@ def calculate(request):
         'rangeDay': range(1,32),
         'rangeMonth': range(1,13),
         'rangeYear': range(2000,2018),
-        'calculatedJD': jdFromDate(dd, mm, yy)
+        'calculatedJD': jdFromDate(dd, mm, yy),
+        'dd': dd,
+        'mm': mm,
+        'yy': yy
     }) 
 
 

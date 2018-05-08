@@ -306,7 +306,7 @@ $ git push</pre>
     <select name="day">
       {% for d in rangeDay %}
 
-        <option value="{{ d }}">{{ d }}</option>
+        <option value="{{ d }}" {% if d == dd %} selected="true" {% endif %}>{{ d }}</option>
       {% endfor %}
      
     </select>
@@ -314,7 +314,7 @@ $ git push</pre>
     <select name="month">
       {% for m in rangeMonth %}
 
-        <option value="{{ m }}">{{ m }}</option>
+        <option value="{{ m }}" {% if m == mm %} selected="true" {% endif %}>{{ m }}</option>
       {% endfor %}
      
     </select>
@@ -322,7 +322,7 @@ $ git push</pre>
     <select name="year">
       {% for y in rangeYear %}
 
-        <option value="{{ y }}">{{ y }}</option>
+        <option value="{{ y }}" {% if y == yy %} selected="true" {% endif %}>{{ y }}</option>
       {% endfor %}
      
     </select>
