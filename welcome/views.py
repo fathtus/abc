@@ -8,7 +8,7 @@ from django.http import HttpResponseRedirect
 
 from . import database
 from .models import PageView
-from .forms import NameForm
+from . import NameForm
 
 # Create your views here.
 
