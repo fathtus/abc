@@ -18,6 +18,21 @@ def index(request):
 
     jd = jdFromDate(1, 1, 1)
 
+        # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = NameForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            return HttpResponseRedirect('/thanks/')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = NameForm()
+
     return render(request, 'welcome/index.html', {
         'hostname': hostname,
         'database': database.info(),
@@ -26,7 +41,8 @@ def index(request):
         'date': jdToDate(jd),
         'rangeDay': range(1,32),
         'rangeMonth': range(1,13),
-        'rangeYear': range(2000,2018)
+        'rangeYear': range(2000,2018),
+        'form': form
     })
 
 def health(request):
@@ -87,23 +103,6 @@ def calculate(request):
         'yy': yy
     }) 
 
-def get_name(request):
-    # if this is a POST request we need to process the form data
-    if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        form = NameForm(request.POST)
-        # check whether it's valid:
-        if form.is_valid():
-            # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
-            return HttpResponseRedirect('/thanks/')
-
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        form = NameForm()
-
-    return render(request, 'name.html', {'form': form})
 
 
 def jdFromDate(dd, mm, yy):
