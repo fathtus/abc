@@ -8,4 +8,5 @@ app_name = 'welcome'
 urlpatterns = [
     path('', views.index, name='index'),
     path('calculate', views.calculate, name='calculate'),
+    path('get-name', views.get_name, name='get_name'),
 ]
