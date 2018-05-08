@@ -42,14 +42,14 @@ def calculate(request):
 	hostname = os.getenv('HOSTNAME', 'unknown')
 #    PageView.objects.create(hostname=hostname)
 
-    jd = jdFromDate(1, 1, 1)
+#    jd = jdFromDate(1, 1, 1)
 
 	return render(request, 'welcome/index.html', {
         'hostname': hostname,
         'database': database.info(),
         'count': PageView.objects.count(),
-        'jd' : jd, 
-        'date': jdToDate(jd),
+#        'jd' : jd, 
+#        'date': jdToDate(jd),
         'rangeDay': range(1,32),
         'rangeMonth': range(1,13),
         'rangeYear': range(2000,2018),
