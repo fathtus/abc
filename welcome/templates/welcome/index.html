@@ -1,3 +1,4 @@
+{%if not fixLoading %}
 {% load static %}
 
 <!doctype html>
@@ -222,30 +223,10 @@ pre {
         <div class="row">
           
           <section class="col-xs-12 col-sm-6 col-md-6">
-
-                <h2>Managing your application</h2>
-
-                <p>Documentation on how to manage your application from the Web Console or Command Line is available at the <a href="http://docs.openshift.org/latest/dev_guide/overview.html">Developer Guide</a>.</p>
-
-                <h3>Web Console</h3>
-                <p>You can use the Web Console to view the state of your application components and launch new builds.</p>
-
-                <h3>Command Line</h3>
-                <p>With the <a href="http://docs.openshift.org/latest/cli_reference/overview.html">OpenShift command line interface</a> (CLI), you can create applications and manage projects from a terminal.</p>
-
-                <h2>Development Resources</h2>
-                  <ul>
-                    <li><a href="http://docs.openshift.org/latest/welcome/index.html">OpenShift Documentation</a></li>
-                    <li><a href="https://github.com/openshift/origin">Openshift Origin GitHub</a></li>
-                    <li><a href="https://github.com/openshift/source-to-image">Source To Image GitHub</a></li>
-                    <li><a href="http://docs.openshift.org/latest/using_images/s2i_images/python.html">Getting Started with Python on OpenShift</a></li>
-                    <li><a href="http://stackoverflow.com/questions/tagged/openshift">Stack Overflow questions for OpenShift</a></li>
-                    <li><a href="http://git-scm.com/documentation">Git documentation</a></li>
-                  </ul>
-
                 <h2>Request information</h2>
-<pre>
-  <form action="{%url 'welcome:calculate'%}" method="POST">
+<pre id="mainCalculation">
+{% endif %}
+  <form action="{%url 'welcome:calculate'%}" id="calculateForm" method="POST">
     {% csrf_token %}
     <select name="day">
       {% for d in rangeDay %}
@@ -285,6 +266,8 @@ Page views: {{ count }}
   jd: {{jd}}
   date: {{date}}
 {% endif %}
+
+{% if not fixLoading %}
 </pre>
 
           </section>
@@ -296,6 +279,31 @@ Page views: {{ count }}
         </footer>
 </section>
 
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#calculateForm").submit(e){
+      e.preventDefault();
+      var $form = $("#calculateForm");
+      $.ajax({
+        type: POST,
+        url : $form.attr('action')+'?fixLoading=true',
+        dataType  : 'html',
+        data: $form.serialize(),
+        success: function(data){
+          $("#mainCalculation").html(data);
+
+        },
+        error: function(data){
+
+        } 
+
+
+      });
+
+    }
+  });
+</script>
 
 </body>
 </html>
+{% endif %}

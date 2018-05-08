@@ -45,10 +45,28 @@ def calculate(request):
 		mm = 1
 		yy = 1
 
+
+
+
 	hostname = os.getenv('HOSTNAME', 'unknown')
 #    PageView.objects.create(hostname=hostname)
 
 #    jd = jdFromDate(1, 1, 1)
+	if (request.GET and request.GET.get('fixLoading')):
+		return render(request, 'welcome/index.html', {
+	        'hostname': hostname,
+	        'database': database.info(),
+	        'count': PageView.objects.count(),
+	       	'fixLoading' : fixLoading, 
+	#        'date': jdToDate(jd),
+	        'rangeDay': range(1,32),
+	        'rangeMonth': range(1,13),
+	        'rangeYear': range(2000,2018),
+	        'calculatedJD': jdFromDate(dd, mm, yy),
+	        'dd': dd,
+	        'mm': mm,
+	        'yy': yy
+	    }) 
 
 	return render(request, 'welcome/index.html', {
         'hostname': hostname,
