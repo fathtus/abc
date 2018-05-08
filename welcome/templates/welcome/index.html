@@ -267,8 +267,6 @@ Page views: {{ count }}
   date: {{date}}
 {% endif %}
 
-{% if not fixLoading %}
-
 <script type="text/javascript">
   $(document).ready(function(){
     $("#calculateForm").submit(function(e){
@@ -293,6 +291,9 @@ Page views: {{ count }}
     });
   });
 </script>
+{% if not fixLoading %}
+
+
 </pre>
 
           </section>
