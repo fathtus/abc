@@ -36,7 +36,7 @@ from the book "Astronomical Algorithms" by Jean Meeus, 1998
 '''
 
 def calculate(request):
-	if (request.POST['day'] && request.POST['month'] && request.POST['year']):
+	if (request.POST['day'] != null && request.POST['month'] != null && request.POST['year'] != nulls):
 		dd = int(request.POST['day'])
 		mm = int(request.POST['month'])
 		yy = int(request.POST['year'])
@@ -44,7 +44,7 @@ def calculate(request):
 		dd = 1
 		mm = 1
 		yy = 1
-		
+
 	hostname = os.getenv('HOSTNAME', 'unknown')
 #    PageView.objects.create(hostname=hostname)
 
