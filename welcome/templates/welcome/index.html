@@ -281,7 +281,7 @@ Page views: {{ count }}
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $("#calculateForm").submit(e){
+    $("#calculateForm").submit(function(e){
       e.preventDefault();
       var $form = $("#calculateForm");
       $.ajax({
@@ -300,8 +300,7 @@ Page views: {{ count }}
 
       });
 
-    }
-  });
+    });
 </script>
 
 </body>
