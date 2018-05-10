@@ -4,11 +4,12 @@ from django.shortcuts import render
 from django.conf import settings
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
+from django.core.mail import send_mail
 
 
 from . import database
 from .models import PageView
-from .forms import NameForm
+from .forms import NameForm, ContactForm
 
 # Create your views here.
 
@@ -105,6 +106,24 @@ def get_name(request):
         form = NameForm()
 
     return render(request, 'welcome/name.html', {'form': form})
+
+def contact(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = ContactForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            return HttpResponseRedirect('/welcome/contact.html')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = ContactForm()
+
+    return render(request, 'welcome/contact.html', {'form': form})
 
 
 def jdFromDate(dd, mm, yy):
