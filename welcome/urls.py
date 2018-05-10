@@ -10,5 +10,5 @@ urlpatterns = [
     path('calculate', views.calculate, name='calculate'),
     path('get-name', views.get_name, name='get_name'),
     path('contact', views.contact, name='contact'),
-    path('author', views.authorForm, name='authorForm'),
+    # path('author', views.authorForm, name='authorForm'),
 ]
