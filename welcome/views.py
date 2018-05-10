@@ -8,7 +8,7 @@ from django.core.mail import send_mail
 
 
 from . import database
-from .models import PageView
+from .models import PageView, AuthorForm
 from .forms import NameForm, ContactForm
 
 # Create your views here.
@@ -131,6 +131,10 @@ def contact(request):
         form = ContactForm()
 
     return render(request, 'welcome/contact.html', {'form': form})
+
+def authorForm(request):
+    form = AuthorForm()
+    return render(request, 'welcome/author.html', {'form': form})
 
 
 def jdFromDate(dd, mm, yy):
