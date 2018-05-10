@@ -114,10 +114,17 @@ def contact(request):
         form = ContactForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
-            # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
-            return HttpResponseRedirect('/welcome/contact.html')
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+            sender = form.cleaned_data['sender']
+            cc_myself = form.cleaned_data['cc_myself']
+
+            recipients = ['fathtus@gmail.com']
+            if cc_myself:
+                recipients.append(sender)
+
+            send_mail(subject, message, sender, recipients)
+            return HttpResponseRedirect('/welcome/contact')
 
     # if a GET (or any other method) we'll create a blank form
     else:
