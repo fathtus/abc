@@ -1,6 +1,6 @@
 
 <form action="/welcome/contact" method="post">
     {% csrf_token %}
-    {{ form }}
+    {{ form.as_table }}
     <input type="submit" value="Submit" />
 </form>
