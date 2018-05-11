@@ -30,7 +30,7 @@ class Book(models.Model):
 class AuthorForm(ModelForm):
     class Meta:
         model = Author
-        fields = ['name', 'title', 'birth_date']
+        fields = ['name', 'title']
 
 class BookForm(ModelForm):
     class Meta:
