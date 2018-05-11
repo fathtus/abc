@@ -11,26 +11,8 @@ from . import database
 from .models import PageView, AuthorForm
 from .forms import NameForm, ContactForm
 
-from django.views.generic import ListView
-from django.views.generic import DetailView
-from .models2 import Publisher, Book
 
-class PublisherList(ListView):
-    model = Publisher
-    context_object_name = 'my_favorite_publishers'
 
-class PublisherDetail(DetailView):
-
-    model = Publisher
-
-    def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
-        context = super().get_context_data(**kwargs)
-        # Add in a QuerySet of all the books
-        context['book_list'] = Book.objects.all()
-        return context
-
-        
 # Create your views here.
 
 def index(request):
