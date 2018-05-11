@@ -4,6 +4,8 @@ from django.urls import path
 
 from . import views
 
+from .views import PublisherList
+
 app_name = 'welcome'
 urlpatterns = [
     path('', views.index, name='index'),
@@ -11,4 +13,5 @@ urlpatterns = [
     path('get-name', views.get_name, name='get_name'),
     path('contact', views.contact, name='contact'),
     path('author', views.authorForm, name='authorForm'),
+    path('publishers/', PublisherList.as_view()),
 ]
